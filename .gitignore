@@ -1,0 +1,30 @@
+# Archivos de Bytecode
+**/*.exe
+**/*.exe.config
+**/*.dll
+
+# Archivos de herramientas
+**/*.pdb
+**/*.mdb
+
+# Archivos de Test
+**/[TestResults]
+
+# Archivos de compilación
+**/[Bb]in/
+**/[Oo]bj/
+
+# Archivos Misc
+**/*.cache
+**/*.log
+**/*.user
+**/*.suo
+
+# Archivos de paquetes NuGet
+**/packages/
+
+# Carpetas de herramientas de Visual Studio Code
+**/.vscode/
+
+# Carpetas de Visual Studio
+**/.vs/
