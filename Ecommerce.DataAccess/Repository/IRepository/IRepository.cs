@@ -14,7 +14,7 @@ namespace Ecommerce.DataAccess.Repository.IRepository
         Task<T?> GetFirst(
             Expression<Func<T, bool>>? filter = null,
             string? includeProperties = null,
-            bool? istracking = true
+            bool istracking = true
             );
         Task Add(T entity);
         void Remove(T entity);
