@@ -1,4 +1,5 @@
 ﻿using Ecommerce.DataAccess.Repository.IRepository;
+using Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Areas.Admin.Controllers
@@ -18,12 +19,49 @@ namespace Ecommerce.Areas.Admin.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Upsert(int? id)
+        {
+            Storage? storage = new ();
+            if (id == null)
+            {
+                storage.Status = true;
+                return View(storage);
+            }
+
+            storage = await _unitOfWork.Storage.Get(id.GetValueOrDefault());
+            if (storage == null)
+            {
+                return NotFound();
+            }
+            return View(storage);
+        }
+
         #region API
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var allStorages = await _unitOfWork.Storage.GetAll();
             return Json(new { data = allStorages });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Upsert(Storage storage)
+        {
+            if (ModelState.IsValid)
+            {
+                if (storage.Id == 0)
+                {
+                    await _unitOfWork.Storage.Add(storage);
+                }
+                else
+                {
+                    _unitOfWork.Storage.Update(storage);
+                }
+                await _unitOfWork.Save();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(storage);
         }
         #endregion
     }
