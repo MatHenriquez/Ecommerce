@@ -63,6 +63,19 @@ namespace Ecommerce.Areas.Admin.Controllers
             }
             return View(storage);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var storage = await _unitOfWork.Storage.Get(id);
+            if (storage == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+            _unitOfWork.Storage.Remove(storage);
+            await _unitOfWork.Save();
+            return Json(new { success = true, message = "Delete successful" });
+        }
         #endregion
     }
 }
