@@ -5,11 +5,13 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce", "Ecommerce\Ecommerce.csproj", "{94F5F302-AE3F-4F9E-9927-A41E5C12B35E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.DataAccess", "Ecommerce.DataAccess\Ecommerce.DataAccess.csproj", "{B8E43E93-28DF-4E92-9086-A4FE611A1797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.DataAccess", "Ecommerce.DataAccess\Ecommerce.DataAccess.csproj", "{B8E43E93-28DF-4E92-9086-A4FE611A1797}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Models", "Ecommerce.Models\Ecommerce.Models.csproj", "{D5D3B0D6-7E61-45E9-BAFD-29C342FD03C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Models", "Ecommerce.Models\Ecommerce.Models.csproj", "{D5D3B0D6-7E61-45E9-BAFD-29C342FD03C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{62200F08-0AB0-418F-8DED-0EA8CC2D18D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{62200F08-0AB0-418F-8DED-0EA8CC2D18D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.UnitTests", "Ecommerce.UnitTests\Ecommerce.UnitTests.csproj", "{F3E99DAA-B289-4CE2-B77C-7F67E3AB4FEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{62200F08-0AB0-418F-8DED-0EA8CC2D18D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62200F08-0AB0-418F-8DED-0EA8CC2D18D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62200F08-0AB0-418F-8DED-0EA8CC2D18D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3E99DAA-B289-4CE2-B77C-7F67E3AB4FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3E99DAA-B289-4CE2-B77C-7F67E3AB4FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3E99DAA-B289-4CE2-B77C-7F67E3AB4FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3E99DAA-B289-4CE2-B77C-7F67E3AB4FEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
