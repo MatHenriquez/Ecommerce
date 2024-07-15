@@ -14,6 +14,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.UnitTests", "Ecommerce.UnitTests\Ecommerce.UnitTests.csproj", "{F3E99DAA-B289-4CE2-B77C-7F67E3AB4FEE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{CA0A94E3-5037-4523-9DBC-D70DA8A0A9A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{DB3AA2C2-369A-4F6C-86BF-88E976725E36}"
 	ProjectSection(SolutionItems) = preProject
 		test.yml = test.yml
 	EndProjectSection
@@ -47,6 +49,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB3AA2C2-369A-4F6C-86BF-88E976725E36} = {CA0A94E3-5037-4523-9DBC-D70DA8A0A9A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E557DD0-8C11-408F-ACD6-F7250E009308}
