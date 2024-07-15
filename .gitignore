@@ -28,3 +28,6 @@
 
 # Carpetas de Visual Studio
 **/.vs/
+
+# JSON setting files
+**/appsettings.json
