@@ -1,6 +1,7 @@
 ﻿using Ecommerce.DataAccess.Repository.IRepository;
 using Ecommerce.Models;
 using Microsoft.AspNetCore.Mvc;
+using Utilities;
 
 namespace Ecommerce.Areas.Admin.Controllers
 {
@@ -53,14 +54,17 @@ namespace Ecommerce.Areas.Admin.Controllers
                 if (storage.Id == 0)
                 {
                     await _unitOfWork.Storage.Add(storage);
+                    TempData[StaticDefinitions.Success] = "Storage added successfully";
                 }
                 else
                 {
                     _unitOfWork.Storage.Update(storage);
+                    TempData[StaticDefinitions.Success] = "Storage updated successfully";
                 }
                 await _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));
             }
+            TempData[StaticDefinitions.Error] = "Error";
             return View(storage);
         }
 
