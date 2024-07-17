@@ -1,0 +1,20 @@
+﻿@using Utilities
+
+@if(TempData[StaticDefinitions.Success] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.success('@TempData[StaticDefinitions.Success]');
+    </script>
+}
+
+@if (TempData[StaticDefinitions.Error] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        toastr.success('@TempData[StaticDefinitions.Error]');
+    </script>
+}
+
