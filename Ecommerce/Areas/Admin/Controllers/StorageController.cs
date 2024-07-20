@@ -80,6 +80,29 @@ namespace Ecommerce.Areas.Admin.Controllers
             await _unitOfWork.Save();
             return Json(new { success = true, message = "Delete successful" });
         }
+
+        [ActionName("ValidateName")]
+        public async Task<IActionResult> ValidateName(string name, int id = 0)
+        {
+            bool value = false;
+            var storages = await _unitOfWork.Storage.GetAll();
+
+            if(id == 0)
+            {
+                value = storages.Any(x => x.Name.ToLower().Trim() == name.ToLower().Trim());
+            }
+            else
+            {
+                value = storages.Any(x => x.Name.ToLower().Trim() == name.ToLower().Trim() && x.Id != id);
+            }
+
+            if(value)
+            {
+                return Json(new { data = true });
+            }
+
+            return Json(new { data = false });
+        }
         #endregion
     }
 }
