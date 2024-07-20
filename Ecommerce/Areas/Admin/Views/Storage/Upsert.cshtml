@@ -13,7 +13,7 @@
                 @if(Model.Id != 0)
                 {
                     title = "Edit Storage";
-                    <input type="hidden" asp-for="Id"/>
+                    <input type="hidden" asp-for="Id" id="id"/>
                 }
 
                 <div class="col-12 border-bottom p-0">
@@ -23,7 +23,7 @@
                 <div class="row mb-2 mt-2">
                     <div class="form-group col-md-6">
                         <label>Name</label>
-                        <input asp-for="Name" class="form-control" placeholder="Storage name..."/>
+                        <input asp-for="Name" class="form-control" placeholder="Storage name..." id="name"/>
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                 </div>
@@ -65,5 +65,28 @@
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById("name").addEventListener('change', function () {
+            validateName();
+        });
+
+        function validateName()
+        {
+            const url = '@Url.Content("~/")' + "Admin/Storage/ValidateName";
+            const name = '#name';
+            const id = '#id'
+
+            $.getJSON(url, { id: $(id).val(), name: $(name).val() }, function (data) {
+                $.each(data, function (key, value) {
+                    if (value) {
+                        const name = document.getElementById("name");
+                        swal("Error", "The name is already in use", "error");
+                        name.value = "";
+                    }
+                });
+            });
+        }
+    </script>
 }
 
