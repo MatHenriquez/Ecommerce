@@ -9,6 +9,7 @@ namespace Ecommerce.DataAccess.Repository.IRepository
     public interface IUnitOfWork : IDisposable
     {
         IStorageRepository Storage { get; }
+        ICategoryRepository Category { get; }
         Task Save();
     }
 }
