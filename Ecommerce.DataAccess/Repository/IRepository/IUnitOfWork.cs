@@ -10,6 +10,7 @@ namespace Ecommerce.DataAccess.Repository.IRepository
     {
         IStorageRepository Storage { get; }
         ICategoryRepository Category { get; }
+        IBrandRepository Brand { get; }
         Task Save();
     }
 }
