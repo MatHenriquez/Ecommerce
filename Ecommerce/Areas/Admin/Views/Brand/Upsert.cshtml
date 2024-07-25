@@ -1,0 +1,92 @@
+﻿@model Ecommerce.Models.Brand
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string title = "Create Brand";
+}
+
+<form method="post">
+    <div style="padding-left: 15%; padding-right: 15% padding-bottom: inherit.4rem;">
+        <div class="row border-0">
+            <div asp-asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+                @if(Model.Id != 0)
+                {
+                title = "Edit Brand";
+                    <input type="hidden" asp-for="Id" id="id"/>
+                }
+
+                <div class="col-12 border-bottom p-0">
+                    <h2 class="text-primary">@title</h2>
+                </div>
+
+                <div class="row mb-2 mt-2">
+                    <div class="form-group col-md-6">
+                        <label>Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Brand name..." id="name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-2 mt-2">
+                    <div class="form-group col-md-6">
+                        <label>Description</label>
+                    <input asp-for="Description" class="form-control" placeholder="Brand description..." />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-2 mt-2">
+                    <div class="form-group col-md-6">
+                        <label>Status</label>
+                        <select asp-for="Status" class="form-control">
+                            <option value=true>Active</option>
+                            <option value=false>Inactive</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <br />
+
+                <div>
+                    @if(Model.Id != 0)
+                    {
+                        <partial name="_UpdateAndReturnButtons" model="Model.Id" />
+                    }
+                    else
+                    {
+                        <partial name="_CreateAndReturnButtons" />
+                    }
+                </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById("name").addEventListener('change', function () {
+            validateName();
+        });
+
+        function validateName()
+        {
+            const url = '@Url.Content("~/")' + "Admin/Brand/ValidateName";
+            const name = '#name';
+            const id = '#id'
+
+            $.getJSON(url, { id: $(id).val(), name: $(name).val() }, function (data) {
+                $.each(data, function (key, value) {
+                    if (value) {
+                        const name = document.getElementById("name");
+                        swal("Error", "The name is already in use", "error");
+                        name.value = "";
+                    }
+                });
+            });
+        }
+    </script>
+}
+
